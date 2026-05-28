@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landing Page Quick Audit Kit - $5</title>
+  <style>
+    :root {
+      --ink: #171c22;
+      --muted: #64717f;
+      --line: #d9dfd8;
+      --bg: #f8faf6;
+      --paper: #ffffff;
+      --teal: #0f766e;
+      --teal-dark: #0b5751;
+      --gold: #b7791f;
+      --red: #b42318;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 56px);
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1.14fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      color: var(--teal-dark);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 82px);
+      line-height: 0.95;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+      max-width: 780px;
+    }
+
+    .lead {
+      color: #36414d;
+      font-size: 19px;
+      max-width: 640px;
+      margin: 0 0 24px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 22px 0 12px;
+    }
+
+    .btn {
+      min-height: 46px;
+      padding: 11px 16px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      background: var(--paper);
+    }
+
+    .btn.primary {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 28px;
+    }
+
+    .preview {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(23, 28, 34, 0.12);
+    }
+
+    .preview-top {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fbfcf8;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .score {
+      color: var(--teal-dark);
+    }
+
+    .preview-body {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 110px 1fr 44px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar {
+      height: 9px;
+      border-radius: 999px;
+      background: #edf2ec;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--teal);
+    }
+
+    .notice {
+      border: 1px solid #f1c7c0;
+      background: #fff7f5;
+      color: var(--red);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .band {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .item strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sample {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .sample h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    .sample pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 12px;
+      max-height: 360px;
+      overflow: auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .sample {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .band {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Offline tool - instant download - client-use license</div>
+        <h1>Landing Page Quick Audit Kit</h1>
+        <p class="lead">A practical scorecard and report generator for freelancers, founders, and marketers who need to find the highest-impact fixes on a landing page fast.</p>
+        <div class="price">$5 <span class="small">USD</span></div>
+        <div class="actions">
+          <a class="btn primary" href="https://paypal.me/Locpiam/5USD">Buy for $5 USD</a>
+          <a class="btn" href="#sample">View sample output</a>
+        </div>
+        <p class="small">PayPal opens with <strong>$5 USD</strong> requested. Add your delivery email or page URL in the PayPal note. After payment, <strong>landing-page-quick-audit-kit.zip</strong> is delivered manually by Zoe Aurelion.</p>
+      </div>
+      <figure class="preview" aria-label="Audit kit interface preview">
+        <div class="preview-top">
+          <span>Quick Audit Report</span>
+          <span class="score">52 / 100</span>
+        </div>
+        <div class="preview-body">
+          <div class="metric">
+            <strong>Message</strong>
+            <div class="bar"><span style="width: 70%"></span></div>
+            <span>70%</span>
+          </div>
+          <div class="metric">
+            <strong>Offer</strong>
+            <div class="bar"><span style="width: 60%"></span></div>
+            <span>60%</span>
+          </div>
+          <div class="metric">
+            <strong>Trust</strong>
+            <div class="bar"><span style="width: 40%"></span></div>
+            <span>40%</span>
+          </div>
+          <div class="notice">Top fix: move the most specific proof above the first secondary section.</div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="band" aria-label="Included features">
+      <article class="item">
+        <strong>25-point audit app</strong>
+        <p>Score message, offer, trust, friction, and clarity in a standalone HTML app.</p>
+      </article>
+      <article class="item">
+        <strong>Client-ready report</strong>
+        <p>Generate a concise report with top priorities, section scores, and next steps.</p>
+      </article>
+      <article class="item">
+        <strong>Service templates</strong>
+        <p>Includes delivery scripts, CTA copy bank, hero rewrite formulas, and sample output.</p>
+      </article>
+    </section>
+
+    <section class="sample" id="sample" aria-label="Sample output">
+      <div>
+        <h2>Sample output</h2>
+        <p class="lead">The kit turns a rough review into a structured report with a score, top priorities, and practical fixes.</p>
+      </div>
+      <pre>Landing Page Quick Audit
+
+Page: TinyCRM
+Primary goal: Start free trial
+Audience: Solo consultants who need a lighter CRM
+
+Overall score: 52/100
+Verdict: Needs tightening
+
+Top priorities:
+1. Trust (40%)
+   - Testimonials need a name, role, company, or specific result.
+   Recommended fix: Move the most specific testimonial above the first secondary section.
+
+2. Friction (40%)
+   - Navigation competes with conversion.
+   Recommended fix: Repeat the primary CTA after proof and pricing blocks.
+
+3. Offer (60%)
+   - Pricing, trial, or next step has ambiguity.
+   Recommended fix: Add a one-sentence next-step note under the primary CTA.</pre>
+    </section>
+  </main>
+</body>
+</html>
